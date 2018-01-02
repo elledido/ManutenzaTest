@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create new User</title>
+    </h:head>
+    <h:body>
+        <h1>Crea un nuovo Utente</h1>
+        <hr/>
+        <h:form>
+            <table border="0">
+                <tr>
+                    <td><h:outputLabel value="Nome: " /></td>
+                    <td><h:inputText value="#{utenteController.utente.nome}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="Cognome: " /></td>
+                    <td><h:inputText value="#{utenteController.utente.cognome}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="Email: " /></td>
+                    <td><h:inputText value="#{utenteController.utente.email}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="Password: " /></td>
+                    <td><h:inputSecret value="#{utenteController.utente.password}"/></td>
+                </tr>
+            </table>
+            <h:commandButton value="Crea Utente" 
+                             action="#{utenteController.doCreaUtente}"
+                             styleClass="submit" />
+        </h:form>
+        <hr/>
+    </h:body>
+    
+    <h1>Lista degli Utenti</h1>
+    
+    <h:dataTable id="listautenti" value="#{utenteController.listaUtenti}" var="utente" border="1">
+
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Nome"/>
+        </f:facet>
+          <h:outputText value="#{utente.nome}"/>
+      </h:column>
+
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Cognome"/>
+        </f:facet>
+          <h:outputText value="#{utente.cognome}"/>
+      </h:column>
+        
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="E-mail"/>
+        </f:facet>
+          <h:outputText value="#{utente.email}"/>   
+      </h:column>
+        
+      <h:column>
+        <f:facet name="header">
+          <h:outputText value="Visualizza"/>
+        </f:facet>
+          <h:link outcome="riepilogoUtente.xhtml?id=#{utente.id}" value="Visualizza" /> 
+      </h:column>
+        
+</h:dataTable>
+    
+</html>
+

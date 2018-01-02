@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Create new User</title>
+    </h:head>
+    <h:body>
+        <h1>Riepilogo Utente</h1>
+        <hr/>
+        <f:metadata>
+            <f:viewParam name="id" value="#{utenteController.utente.id}"/>
+            <f:viewAction action="#{utenteController.getUtentePerId}"/>
+        </f:metadata>
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Nome : "/>
+            <h:outputText value="#{utenteController.utente.nome}"/>
+            
+            <h:outputLabel value="Cognome : "/>
+            <h:outputText value="#{utenteController.utente.cognome}"/>
+            
+            <h:outputLabel value="Email : "/>
+            <h:outputText value="#{utenteController.utente.email}"/>
+        </h:panelGrid>
+        <hr/>
+    
+    <h1>Lista Indirizzi</h1>
+    
+    <h:dataTable id="listaindirizzi" value="#{utenteController.listaIndirizzi}" var="ind" border="1">
+        
+        <h:column>
+           <f:facet name="header">
+               <h:outputText value="Via"/>
+           </f:facet>
+            <h:outputText value="#{ind.via}"/>
+        </h:column>
+        <h:column>
+           <f:facet name="header">
+               <h:outputText value="CAP"/>
+           </f:facet>
+            <h:outputText value="#{ind.cap}"/>
+        </h:column>
+        <h:column>
+           <f:facet name="header">
+               <h:outputText value="Città"/>
+           </f:facet>
+            <h:outputText value="#{ind.citta}"/>
+        </h:column>
+        
+    </h:dataTable>
+    
+    </h:body>
+</html>
