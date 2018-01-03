@@ -9,6 +9,7 @@ import javax.ejb.Local;
 public interface GestoreIndirizzoLocal {
     
     public void aggiungiIndirizzo(Indirizzo indirizzo);
+    public void aggiungiIndirizzo(Indirizzo indirizzo, Long proprietarioId);
     public void rimuoviIndirizzo(Indirizzo indirizzo);
     public Indirizzo cercaIndirizzoPerId(Long id);
     public List<Indirizzo> cercaIndirizziPerUtente(Utente utente);

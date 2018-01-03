@@ -14,9 +14,18 @@ public class GestoreIndirizzo implements GestoreIndirizzoLocal {
     
     @PersistenceContext(unitName = "manutenzaPU")
     private EntityManager em;
-
+    
     @Override
     public void aggiungiIndirizzo(Indirizzo indirizzo) {
+        em.persist(indirizzo);
+    }
+
+    @Override
+    public void aggiungiIndirizzo(Indirizzo indirizzo, Long proprietarioId) {
+         Utente utente = em.createNamedQuery("Utente.cercaPerId", Utente.class)
+                 .setParameter("id", proprietarioId)
+                 .getSingleResult();
+         indirizzo.setProprietario(utente);
          em.persist(indirizzo);
     }
 

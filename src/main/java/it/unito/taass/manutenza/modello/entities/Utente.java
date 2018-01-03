@@ -1,5 +1,6 @@
 package it.unito.taass.manutenza.modello.entities;
 
+import it.unito.taass.manutenza.modello.business.GestoreUtente;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -84,11 +85,15 @@ public class Utente implements Serializable {
     }
     
     public List<Indirizzo> getListaIndirizzi() {
-        return listaIndirizzi;
+        return this.listaIndirizzi;
     }
-
+    
     public void setListaIndirizzi(List<Indirizzo> listaIndirizzi) {
         this.listaIndirizzi = listaIndirizzi;
+    }
+
+    public void addIndirizzo(Indirizzo indirizzo) {
+        this.listaIndirizzi.add(indirizzo);
     }
 
 }

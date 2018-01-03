@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Inserisci Nuovo Indirizzo</title>
+    </h:head>
+    <h:body>
+        <f:metadata>
+            <f:viewParam name="id" value="#{utenteController.utente.id}"/>
+            <f:viewAction action="#{utenteController.getUtentePerId}"/>
+        </f:metadata>
+        <h1>Nuovo Indirizzo</h1>
+        <hr/>
+        <h:form>
+            <table border="0">
+                <tr>
+                    <td><h:outputLabel value="Via: " /></td>
+                    <td><h:inputText value="#{indirizzoController.indirizzo.via}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="CAP: " /></td>
+                    <td><h:inputText value="#{indirizzoController.indirizzo.cap}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="Città: " /></td>
+                    <td><h:inputText value="#{indirizzoController.indirizzo.citta}"/></td>
+                </tr>
+            </table>
+            <h:commandButton value="Inserisci Indirizzo" 
+                             action="#{indirizzoController.doInserisciIndirizzo(utenteController.utente.id)}"
+                             styleClass="submit" />
+        </h:form>
+        <hr/>
+    </h:body>
+</html>

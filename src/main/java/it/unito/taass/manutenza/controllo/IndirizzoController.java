@@ -6,6 +6,8 @@ import it.unito.taass.manutenza.modello.entities.Utente;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 /**
@@ -23,6 +25,15 @@ public class IndirizzoController {
     
     public List<Indirizzo> getIndirizziPerUtente(Utente utente) {
         return gestoreIndirizzo.cercaIndirizziPerUtente(utente);
+    }
+    
+    public String doInserisciIndirizzo(Long proprietarioId) {
+        gestoreIndirizzo.aggiungiIndirizzo(indirizzo, proprietarioId);
+        FacesContext.getCurrentInstance()
+                .addMessage(null, 
+                        new FacesMessage(FacesMessage.SEVERITY_INFO, "Indirizzo Creato", 
+                        "Il nuovo indirizzo " + indirizzo.getId() + "è stato creato."));
+        return "index.xhtml";
     }
 
     public Indirizzo getIndirizzo() {

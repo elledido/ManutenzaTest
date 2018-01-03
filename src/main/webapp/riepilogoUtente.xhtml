@@ -9,7 +9,8 @@
     <h:body>
         <h1>Riepilogo Utente</h1>
         <hr/>
-        <f:metadata>
+        
+       <f:metadata>
             <f:viewParam name="id" value="#{utenteController.utente.id}"/>
             <f:viewAction action="#{utenteController.getUtentePerId}"/>
         </f:metadata>
@@ -23,6 +24,7 @@
             <h:outputLabel value="Email : "/>
             <h:outputText value="#{utenteController.utente.email}"/>
         </h:panelGrid>
+        <h:link outcome="inserisciIndirizzo.xhtml?id=#{utenteController.utente.id}" value="Visualizza" />
         <hr/>
     
     <h1>Lista Indirizzi</h1>
@@ -49,6 +51,5 @@
         </h:column>
         
     </h:dataTable>
-    
     </h:body>
 </html>

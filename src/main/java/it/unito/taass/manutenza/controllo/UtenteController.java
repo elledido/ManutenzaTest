@@ -32,9 +32,14 @@ public class UtenteController {
     }
     
     public List<Indirizzo> getListaIndirizzi() {
-        if(utente.getListaIndirizzi().isEmpty())
+        //if(utente.getListaIndirizzi().isEmpty()) 
             gestoreUtente.caricaListaIndirizzi(utente);
         return utente.getListaIndirizzi();
+    }
+    
+    public void aggiungiIndirizzo(Indirizzo indirizzo) {
+        utente.addIndirizzo(indirizzo);
+        
     }
     
     public List<Utente> getListaUtenti() {
