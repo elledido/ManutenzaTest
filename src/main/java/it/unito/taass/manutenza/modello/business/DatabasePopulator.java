@@ -34,29 +34,29 @@ public class DatabasePopulator {
     @PostConstruct
     private void populateDB() {
         utente1 = new Utente();
-        utente1.setNome("Leonardo");
-        utente1.setCognome("Di Domenico");
-        utente1.setEmail("leonardo.didomenico@edu.unito.it");
-        utente1.setPassword("cicci8lemiba19");
+        utente1.setNome("Mrio");
+        utente1.setCognome("Rossi");
+        utente1.setEmail("mariorossi@email.com");
+        utente1.setPassword("mariorossi");
         utente1.setAutenticato(false);
         
         utente2 = new Utente();
-        utente2.setNome("Rocchina");
-        utente2.setCognome("Cericola");
-        utente2.setEmail("cericolarocchina@libero.it");
-        utente2.setPassword("Arturo41900");
+        utente2.setNome("Giuseppe");
+        utente2.setCognome("Verdi");
+        utente2.setEmail("giuseppeverdi@email.com");
+        utente2.setPassword("giuseppeverdi");
         utente2.setAutenticato(false);
         
         indirizzo1 = new Indirizzo();
-        indirizzo1.setVia("Via Berlinguer 28");
-        indirizzo1.setCap("71027");
-        indirizzo1.setCitta("Orsara di Puglia");
+        indirizzo1.setVia("Via della Pace 23");
+        indirizzo1.setCap("10123");
+        indirizzo1.setCitta("Neverland");
         indirizzo1.setProprietario(utente1);
         
         indirizzo2 = new Indirizzo();
         indirizzo2.setVia("Via del Popolo 1");
-        indirizzo2.setCap("71027");
-        indirizzo2.setCitta("Orsara di Puglia");
+        indirizzo2.setCap("40562");
+        indirizzo2.setCitta("Pianotevere");
         indirizzo2.setProprietario(utente1);
         
         gestoreUtente.aggiungiUtente(utente1);
